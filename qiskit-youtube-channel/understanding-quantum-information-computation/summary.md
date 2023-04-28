@@ -1,7 +1,7 @@
 # Understanding quantum information and computation
 [toc]
 
-## 1. Lesson 1
+## 1. Lesson 1 - Single System
 
 1. classical information
    1. Information $X$ from a finite set of numbers $\sum$, which can be described with probability such as $P(X=0)=\frac{1}{4}$, $P(X=1)=\frac{3}{4}$
@@ -41,12 +41,29 @@
                            1 & 0\\
                            0 & e^{i\theta}
                         \end{pmatrix}$,  S $(\theta=\frac{\pi}{2})$, T $(\theta=\frac{\pi}{4})$
+      3. Input $|0\rangle$ output the first column as state vector, input $|1\rangle$ output the second column as state vector.
 
-## 2. Lesson 2
+## 2. Lesson 2 - Multiple System(system compound)
 
-1. classical states of multiple systems
+1. classical states
    1. n tuple $(a_1,..,a_n) \in \sum_1 \times...\times \sum_n$
    2. Probabilistic states (X, Y), assume X and Y are INDEPENDENT then P(X,Y)=P(X)P(Y)
-2. Operation
-   1. Tensor product describes operations in compound system
-3. Quantum states
+   3. **Operation**
+      1. Tensor product describes operations in compound system, it is bilinear
+      2. $|\pi\rangle=|\Phi\rangle\otimes|\Psi\rangle=\sum_{(a,b)\in\Sigma\times\Gamma}\alpha_a\beta_b|a\rangle|b\rangle$ then $\langle a b|\pi\rangle=\langle a |\Phi\rangle \langle b |\Psi\rangle$ 
+      3. **Tensor products of matries** $M=\sum_{a,b\in\Sigma}\alpha_{ab}|a\rangle\langle b|$, $N=\sum_{c,d\in\Gamma}\beta_{cd}|c\rangle\langle d|$, **then** $M\otimes N=\sum_{a,b} \sum_{c,d} \alpha_{ab}\beta_{cd}|ac\rangle\langle bd|$
+   4. Measurement of probabilistic state
+      1. (X,Y), what happens when measure X and do nothing to Y?
+      2. $P(X=a) = \sum_b P((X,Y)=(a,b))$ and $P(Y=b)=\frac{P((X,Y)=(a,b))}{P(X=a)}$
+      3. Assume arbitary state $(X,Y)= \sum_{(a,b)\in\Sigma\times\Gamma}p_{ab}|ab\rangle=\sum_a |a\rangle \otimes \sum_b p_{ab}|b\rangle$, take one a out then $P(X=a)=\sum_b p_{ab}$ and condition on "a" **then** probabilistic state of Y is $\frac{\sum_b p_{ab}|b\rangle}{\sum_c p_{ac}}$
+2. Quantum states
+   1. Measurement For (X,Y), $P(X=a)=\sum_b|\langle ab| \Psi\rangle|^2=\sum_b|\alpha_{ab}|^2$, and condition on a then Y is $|a\rangle \otimes \frac{\sum_b\alpha_{ab} |b\rangle}{\sum_b|\alpha_{ab}|^2}$
+   2. Unitary operation
+      1. SWAP
+      2. Controll-U on Y **then** $|0\rangle\langle0| \otimes 1_Y +|1\rangle\langle 1|\otimes U = \begin{pmatrix}
+                                       1_Y & 0 \\
+                                       0 & U
+                                    \end{pmatrix}$
+         if the second qubit is controll, $1_Y \otimes|0\rangle\langle0| + U \otimes|1\rangle\langle 1|$
+      3. Controll-Controll-Gate(Toffoli gate)
+         1. Controll-U on Y **then** $|0\rangle\langle0| \otimes 1_Y \otimes 1_Y +|1\rangle\langle 1|\otimes (|0\rangle\langle0| \otimes 1_Y +|1\rangle\langle 1|\otimes U)$
