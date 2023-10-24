@@ -53,9 +53,37 @@ Programming langes list:
    2. ScaffCC from Chicago University
    3. Liquid from Microsoft
    4. OpenQL from Qutech(TU-Delft)
-### Module 3
+### Module 3 -- Quantum Algorithm and Error Correction
 1. Phase kickback
-   1. given an arbitrary unitary, and one eigenstate as input for the target qubits, then the phase of the component of state of target qubit is transferred to the control qubit, which can then be read out($|0\rightarrow\leftarrow 0|+e^{i\theta_k}|1\rightarrow\leftarrow 1|$ is applied to the control qubit). This trick can also be used to read out the action of an arbitrary large unitary.
-### Module 4
-### Module 5
-### Module 6
+   1. given an arbitrary unitary, and one eigenstate as input for the target qubits, then the phase of the component of state of target qubit is transferred to the control qubit, which can then be read out($|0\rightangle\leftangel 0|+e^{i\theta_k}|1\rightangel\leftangel 1|$ is applied to the control qubit). This trick can also be used to read out the action of an arbitrary large unitary.
+   2. To measure phase, apply a inverse QFT at the end of circuit. Binary fractions is the way to describe the phase. Apply phase kickback multiple times through applying Unitary multiple times.
+2. Grover's algorithm
+   1. Prepare $G=U_+ U_f$ where $U_f = I-2|w \rangle \langle w|$ and $U_+=2|+ \rangle \langle +| - I$
+   2. $G^k |+\rightangle^{\otimes n}$ is close to $|w\rightangle$ for a certain k
+   3. root squart speedup
+3. Error correction
+   1. lower than $10^{-15}$.
+   2. Bit-flip Error
+   3. Phase-flip Error
+   4. Surface code together with 49 qubits are used to describe one logical qubit, it is a way for error correction
+### Module 4 Quantum Internet I
+1. Quantum Internet is the network of quantum devices, the edges are channels for transfering quantum information.
+2. Quantum Communicaion, the probability of receiving photon from one side is $P(d) = 10^{-d\tau} $ where d is the distance and $\tau$ is the attenuation
+   1. a repeater is needed for long distance communication
+   2. Free-space channels or fiber-optical channels
+### Module 5 Quantum Internet II
+1. Secure communication using the one-time pad (pre-shared key)
+   1. Encode: Message + Key = ciphertext
+   2. Decoder: ciphtext+ key = message
+   3. ciphertext1 + cipertext2 = message21 + message2
+2. Quantum Key Distribution
+   1. Using qubits
+   2. postprocessing(nothingantum)
+   3. Process: ![see](./images/m5-quantum-key-distribution.png)
+3. [Entanglement distillatio protocol](https://en.wikipedia.org/wiki/Entanglement_distillation)n for long distance
+   1. the quantum correlation becomes weaker in long distance.
+   2. using fidelity as the quality of entanglement after distillation
+   3. [examples](https://www.youtube.com/watch?time_continue=291&v=Re0T4nHaY1U&embeds_referring_euri=https%3A%2F%2Focw.tudelft.nl%2F&source_ve_path=Mjg2NjY&feature=emb_logo)
+   
+
+### Module 6 Wrapping up the building blocks of a quantum computer
