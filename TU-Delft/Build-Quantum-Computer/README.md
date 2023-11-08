@@ -55,11 +55,11 @@ Programming langes list:
    4. OpenQL from Qutech(TU-Delft)
 ### Module 3 -- Quantum Algorithm and Error Correction
 1. Phase kickback
-   1. given an arbitrary unitary, and one eigenstate as input for the target qubits, then the phase of the component of state of target qubit is transferred to the control qubit, which can then be read out($|0\rightangle\leftangel 0|+e^{i\theta_k}|1\rightangel\leftangel 1|$ is applied to the control qubit). This trick can also be used to read out the action of an arbitrary large unitary.
+   1. given an arbitrary unitary, and one eigenstate as input for the target qubits, then the phase of the component of state of target qubit is transferred to the control qubit, which can then be read out($|0\rangle\langel 0|+e^{i\theta_k}|1\rangel\langel 1|$ is applied to the control qubit). This trick can also be used to read out the action of an arbitrary large unitary.
    2. To measure phase, apply a inverse QFT at the end of circuit. Binary fractions is the way to describe the phase. Apply phase kickback multiple times through applying Unitary multiple times.
 2. Grover's algorithm
    1. Prepare $G=U_+ U_f$ where $U_f = I-2|w \rangle \langle w|$ and $U_+=2|+ \rangle \langle +| - I$
-   2. $G^k |+\rightangle^{\otimes n}$ is close to $|w\rightangle$ for a certain k
+   2. $G^k |+\rangle^{\otimes n}$ is close to $|w\rangle$ for a certain k
    3. root squart speedup
 3. Error correction
    1. lower than $10^{-15}$.
@@ -87,3 +87,15 @@ Programming langes list:
    
 
 ### Module 6 Wrapping up the building blocks of a quantum computer
+1. Surface code:
+   1. XZ = -ZX
+   2. $|\psi \rangle \in C, s|\psi \rangle = |\psi \rangle s\in S$, $S$ is a set of operators; $S$ stabilize $\psi$ because $\psi$ is the eigenstate of $s \in S$.
+   3. $|\psi\rangle \rightarrow E|\psi\rangle$ $E$is error that may or may not occur.
+   4. Then $\langle \psi|EsE\psi\rangle$ = -1 if E occur else 1
+   5. did'n really get the point, learn it later if I really need it.
+2. [Quantum Fourier Transformer](https://ocw.tudelft.nl/course-lectures/6-2-2-small-quantum-fourier-transforms/?course_id=31394)
+   $QFT_k$ on k qubits is described as a superposition with uniform magnitude but varies in phase: "$|Z\rangle = \frac{1}{\sqrt{2^k}} \sum_b exp(2\pi i \frac{Zb}{2^k} |b \rangle)$", Z, the input, here is the speed of QFT proceeds around the unit circle. The each row of the QFT matrix is described by state from possible Z times b. e.g., the first row is rotation results on the unit circle by 0 times all b , the second row is the rotation results on the unit circle by 1 times all b, ...  
+3. Quantum Libraries:
+   1. [Quantum programming softwares](https://en.wikipedia.org/wiki/Quantum_programming)
+   2. [Quantum information for jobs, conference, simulators...](https://www.quantiki.org/)
+   3. [Github for quantum software libraries](https://github.com/qosf/awesome-quantum-software), e.g., quantum full stack libraries, quantum simulators, quantum anealing classified by programming languages.
